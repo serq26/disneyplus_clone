@@ -11,7 +11,7 @@ export default function HomeSlider() {
   return (
     <Swiper
       className="mySwiper"
-      slidesPerView={1.23}
+      slidesPerView={1.18}
       speed={1100}
       loop={true}
       autoplay={false}
