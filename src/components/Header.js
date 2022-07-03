@@ -10,7 +10,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -25,7 +25,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -40,7 +40,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -55,7 +55,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -70,7 +70,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -85,7 +85,7 @@ export default function Header() {
           <Link to="/">
             <div className="menu-item">
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 focusable="false"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
