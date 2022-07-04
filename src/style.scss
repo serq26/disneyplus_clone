@@ -34,6 +34,12 @@ img {
   padding: 0 30px;
 }
 
+@media (min-width: 992px) {
+  .container {
+    padding: 0;
+  }
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1300px;
@@ -41,9 +47,9 @@ img {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1700px) {
   .container {
-    padding: 0;
+    max-width: 1760px;
   }
 }
 
@@ -276,5 +282,232 @@ footer {
       max-width: 700px;
       margin: 0 auto;
     }
+  }
+}
+
+// Movies Row
+.movies-row {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 30px;
+  h2 {
+    color: #f9f9f9;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.movie-card {
+  max-width: 340px;
+  border-radius: 4px;
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  background: linear-gradient(#30323e, #1e1f2a) 0% 0% / cover;
+  box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px,
+    rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px,
+      rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: scale(1.04);
+    transition: all 250ms ease-in-out;
+  }
+  &:hover::after {
+    opacity: 1;
+    transition: opacity 0.15s ease-in-out;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    border: 4.2px solid rgba(249, 249, 249, 0.8);
+    height: 97%;
+    width: 98%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    z-index: 3;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+  .title {
+    position: absolute;
+    right: 0;
+    left: 21px;
+    bottom: 12px;
+    color: #fff;
+    font-size: 18px;
+    width: max-content;
+  }
+  .watchingData {
+    background: rgba(0, 0, 0, 0.612);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    color: white;
+    transition: all 0.25s ease-in-out;
+    h3 {
+      margin: 0;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+    .lowerPart {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      top: 72%;
+      margin: 0 16px;
+    }
+    .timeLeft {
+      font-size: 13px;
+      color: #c3c3c3;
+      right: 6%;
+    }
+    .buttons {
+      display: flex;
+      svg {
+        margin-right: 5px;
+        height: 26px;
+        width: 26px;
+      }
+    }
+  }
+  .progressBar {
+    background: rgba(255, 255, 255, 0.22);
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    transition: all 0.25s ease-in-out;
+    .colorBar {
+      background: rgb(17, 60, 207);
+      background: linear-gradient(
+        102deg,
+        rgba(17, 60, 207, 1) 0%,
+        rgba(191, 245, 253, 1) 120%
+      );
+      width: 25%;
+      height: 7px;
+      border-radius: 10px;
+    }
+  }
+
+  &:hover .watchingData {
+    opacity: 1;
+    padding-bottom: 15px;
+    transition: all 0.25s ease-in-out;
+  }
+  &:hover .progressBar {
+    bottom: 10px;
+    margin: 0 15px;
+    border-radius: 12px;
+    width: calc(100% - 30px);
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+// Movies Slide
+.slide-wrapper {
+  overflow: hidden;
+  margin: -70px;
+  .moviesSlide {
+    width: 100%;
+    height: 100%;
+    padding: 70px !important;
+    overflow: visible !important;
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      position: relative;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+      color: #fff;
+      &::after {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+    &:hover .swiper-button-next {
+      opacity: 1;
+    }
+    &:hover .swiper-button-prev {
+      opacity: 1;
+    }
+  }
+}
+
+// Skeleton
+
+.skeleton {
+  display: flex;
+  align-items: flex-start;
+  .body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .smaller {
+      width: 17%;
+      height: 200px;
+      border-radius: 8px;
+      @extend %c-skeleton__animation;
+    }
+  }
+}
+
+$nova-color-skeleton-start: #1e1f2a !default;
+$nova-color-skeleton-end: #30313a !default;
+
+%c-skeleton__animation {
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: $nova-color-skeleton-end;
+  background-image: linear-gradient(
+    to right,
+    $nova-color-skeleton-start 8%,
+    $nova-color-skeleton-end 18%,
+    $nova-color-skeleton-start 33%
+  );
+  background-size: 800px 104px;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 350px 0;
   }
 }
