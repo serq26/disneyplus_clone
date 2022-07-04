@@ -6,7 +6,7 @@ export default function BrandsRow() {
   return (
     <div className="brands-row container">
       {brandCards.map((brand, index) => (
-        <Link key={index} to={`/${brand.brand}`}>
+        <Link key={index} to={`/brand/${brand.brand}`}>
           <div className="brand">
             <img src={brand.image} alt={brand.brand} />
             <video

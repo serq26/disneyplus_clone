@@ -71,40 +71,120 @@ export const brandCards = [
   },
 ];
 
-export const requests = {
-  fetchDisneyClassics: `list/338?api_key=${apiKey}&language=en-US`,
-  fetchDisneySeries: `list/7067611?api_key=${apiKey}&language=en-US`,
-  fetchNationalMovies: `list/7067613?api_key=${apiKey}&language=en-US`,
-  fetchMarvelPhases: `list/8920?api_key=${apiKey}&language=en-US`,
-  fetchMarvelPhaseOne: `list/1271?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchMarvelPhaseTwo: `list/3204?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchMarvelPhaseThree: `list/7067552?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchToyStory: `list/7067603?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchCars: `list/7067605?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchUnexpectedHeroes: `list/7067606?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-  fetchStarWarsLego: `list/7067607?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
-};
 
 export const moviesRequests = [
   {
     type: "watching",
     title: "Continue Watching",
     url: `list/7068720?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: true,
   },
-  { title: "Disney Movies", url: `list/5905?api_key=${apiKey}&language=en-US` },
-  { title: "Pixar Movies", url: `list/9095?api_key=${apiKey}&language=en-US` },
-  { title: "Star Wars", url: `list/8136?api_key=${apiKey}&language=en-US` },
-  { title: "Marvel Movies", url: `list/1?api_key=${apiKey}&language=en-US` },
   {
+    type: "disney",
+    title: "Disney Movies",
+    url: `list/5905?api_key=${apiKey}&language=en-US`,
+    isHome: true,
+  },
+  {
+    type: "disney",
+    title: "Disney Classics",
+    url: `list/338?api_key=${apiKey}&language=en-US`,
+    isHome: false,
+  },
+  {
+    type: "disney",
+    title: "Disney Series",
+    url: `list/7067611?api_key=${apiKey}&language=en-US`,
+    isHome: false,
+  },
+  {
+    type: "pixar",
+    title: "Pixar Movies",
+    url: `list/9095?api_key=${apiKey}&language=en-US`,
+    isHome: true,
+  },
+  {
+    type: "pixar",
+    title: "Toy Story Collection",
+    url: `list/7067603?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "pixar",
+    title: "Cars Collection",
+    url: `list/7067605?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "pixar",
+    title: "Unexpected Heroes",
+    url: `list/7067606?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "star-wars",
+    title: "Star Wars",
+    url: `list/8136?api_key=${apiKey}&language=en-US`,
+    isHome: true,
+  },
+  {
+    type: "star-wars",
+    title: "Star Wars Lego",
+    url: `list/7067607?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "marvel",
+    title: "Marvel Movies",
+    url: `list/1?api_key=${apiKey}&language=en-US`,
+    isHome: true,
+  },
+  {
+    type: "marvel",
+    title: "Marvel Universe",
+    url: `list/8920?api_key=${apiKey}&language=en-US`,
+    isHome: false,
+  },
+  {
+    type: "marvel",
+    title: "Marvel Universe: Phase One",
+    url: `list/1271?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "marvel",
+    title: "Marvel Universe: Phase Two",
+    url: `list/3204?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "marvel",
+    title: "Marvel Universe: Phase Three",
+    url: `list/7067552?api_key=${apiKey}&language=en-US&sort_by=vote_average.asc`,
+    isHome: false,
+  },
+  {
+    type: "simpsons",
     title: "The Simpsons",
     url: `list/7067554?api_key=${apiKey}&language=en-US`,
+    isHome: true,
   },
   {
+    type: "pixar-music",
     title: "Musicales",
     url: `list/7067556?api_key=${apiKey}&language=en-US`,
+    isHome: true,
   },
   {
+    type: "national-geographic",
     title: "Documentaries",
     url: `list/7067555?api_key=${apiKey}&language=en-US`,
+    isHome: true,
+  },
+  {
+    type: "national-geographic",
+    title: "Movies",
+    url: `list/7067613?api_key=${apiKey}&language=en-US`,
+    isHome: false,
   },
 ];
