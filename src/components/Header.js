@@ -22,7 +22,7 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/search">
             <div className="menu-item">
               <svg
                 className="MuiSvgIcon-root"

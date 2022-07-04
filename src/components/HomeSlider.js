@@ -11,7 +11,7 @@ export default function HomeSlider() {
   return (
     <Swiper
       className="mySwiper"
-      slidesPerView={1.18}
+      slidesPerView={1.13}
       speed={1100}
       loop={true}
       autoplay={false}
@@ -24,6 +24,7 @@ export default function HomeSlider() {
       slidesOffsetBefore={0}
       modules={[ Pagination, Autoplay]}
       pagination={{clickable: true}}
+      style={{marginTop:"110px"}}
     >
       {slideImages.map((image, index) => (
         <SwiperSlide key={index}>
