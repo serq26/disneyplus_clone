@@ -145,20 +145,28 @@ export default function Movie() {
                 <div className="slide-wrapper">
                   <Swiper
                     className="moviesSlide"
-                    slidesPerView={5.5}
                     direction="horizontal"
                     speed={1100}
                     spaceBetween={20}
                     loop={true}
                     autoplay={false}
                     delay={1000}
-                    centeredSlides={true}
-                    centerInsufficientSlides={true}
-                    centeredSlidesBounds={true}
-                    slideToClickedSlide={true}
-                    slidesOffsetBefore={0}
                     modules={[Navigation, Autoplay]}
                     navigation={{ clickable: true }}
+                    breakpoints={{
+                      320: {
+                        centeredSlides: false,
+                        slidesPerView: 3,
+                      },
+                      1300: {
+                        slidesPerView: 5.5,
+                        centeredSlides: true,
+                        centerInsufficientSlides: true,
+                        centeredSlidesBounds: true,
+                        slideToClickedSlide: true,
+                        slidesOffsetBefore: 0,
+                      },
+                    }}
                   >
                     {recommended.length > 0 ? (
                       recommended.map((movie, index) => (
@@ -184,20 +192,28 @@ export default function Movie() {
                 <div className="slide-wrapper">
                   <Swiper
                     className="moviesSlide"
-                    slidesPerView={5.5}
                     direction="horizontal"
                     speed={1100}
                     spaceBetween={20}
                     loop={true}
                     autoplay={false}
                     delay={1000}
-                    centeredSlides={true}
-                    centerInsufficientSlides={true}
-                    centeredSlidesBounds={true}
-                    slideToClickedSlide={true}
-                    slidesOffsetBefore={0}
                     modules={[Navigation, Autoplay]}
                     navigation={{ clickable: true }}
+                    breakpoints={{
+                      320: {
+                        centeredSlides: false,
+                        slidesPerView: 1,
+                      },
+                      1300: {
+                        slidesPerView: 5.5,
+                        centeredSlides: true,
+                        centerInsufficientSlides: true,
+                        centeredSlidesBounds: true,
+                        slideToClickedSlide: true,
+                        slidesOffsetBefore: 0,
+                      },
+                    }}
                   >
                     {videos.length > 0 ? (
                       videos.slice(0, 8).map((video, index) => (

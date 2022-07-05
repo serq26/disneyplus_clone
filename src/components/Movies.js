@@ -26,20 +26,28 @@ export default function Movies({ title, url, type }) {
       <div className="slide-wrapper">
         <Swiper
           className="moviesSlide"
-          slidesPerView={5.5}
           direction="horizontal"
           speed={1100}
           spaceBetween={20}
           loop={true}
           autoplay={false}
           delay={1000}
-          centeredSlides={true}
-          centerInsufficientSlides={true}
-          centeredSlidesBounds={true}
-          slideToClickedSlide={true}
-          slidesOffsetBefore={0}
           modules={[Navigation, Autoplay]}
           navigation={{ clickable: true }}
+          breakpoints={{
+            320: {
+              centeredSlides:false,
+              slidesPerView: 3            
+            },
+            1300: {
+              slidesPerView: 5.5,
+              centeredSlides: true,
+              centerInsufficientSlides: true,
+              centeredSlidesBounds: true,
+              slideToClickedSlide: true,
+              slidesOffsetBefore: 0,
+            },
+          }}
         >
           {movies.length > 0 ? (
             movies.map((movie, index) => (

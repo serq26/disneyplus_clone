@@ -34,6 +34,16 @@ img {
   padding: 0 30px;
 }
 
+@media (min-width: 320px) and (max-width: 991px) {
+  body {
+    background: #191b2a;
+  }
+  .container {
+    overflow: hidden;
+    padding: 0 15px;
+  }
+}
+
 @media (min-width: 992px) {
   .container {
     padding: 0;
@@ -42,7 +52,7 @@ img {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 }
@@ -54,6 +64,10 @@ img {
 }
 
 // Header
+.transparentHeader{
+  background-color: transparent!important;
+  background: linear-gradient(0deg,transparent,rgba(0,0,0,.03) 15%,rgba(0,0,0,.125) 30%,rgba(0,0,0,.25) 46%,rgba(0,0,0,.4) 61%,rgba(0,0,0,.553) 75%,rgba(0,0,0,.694) 88%,rgba(0,0,0,.8));
+}
 header {
   background-color: #09090c;
   padding: 20px 30px;
@@ -65,6 +79,22 @@ header {
   top: 0;
   right: 0;
   z-index: 99;
+  .menu-icon {
+    display: none !important;
+    z-index: 99999;
+    position: absolute;
+    top: 40px;
+    left: 24px;
+    svg {
+      fill: white;
+      width: 1em;
+      height: 1em;
+      font-size: 1.5rem;
+      transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      flex-shrink: 0;
+      user-select: none;
+    }
+  }
   .logo {
     height: 50px;
     margin-right: 30px;
@@ -76,6 +106,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 10px;
+    transition: all 0.4s ease-in-out;
     .menu-item {
       display: flex;
       align-items: flex-end;
@@ -108,6 +140,36 @@ header {
           width: 100%;
         }
       }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  header {
+    background: transparent;
+    position: relative;
+    .menu-icon {
+      display: block !important;
+      z-index: 9999;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto;
+      z-index: 9999;
+    }
+    ul {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #191b2a;
+      flex-flow: column;
+      gap: 20px;
+      padding-top: 100px;
+      margin-top: 0;
+      align-items: flex-start;
+      padding-left: 14px;
     }
   }
 }
@@ -207,6 +269,19 @@ header {
   }
 }
 
+@media (min-width: 320px) and (max-width: 992px) {
+  .mySwiper {
+    margin-top: 20px !important;
+    .swiper-slide {
+      .slide {
+        img {
+          height: auto !important;
+        }
+      }
+    }
+  }
+}
+
 // Brands Row
 .brands-row {
   display: flex;
@@ -258,10 +333,19 @@ header {
     }
   }
 }
+
 @media (min-width: 992px) {
   .brands-row {
+    margin-top: 40px;
+    margin-bottom: 30px;
     .brand {
       margin: 0 12px;
+    }
+    .swiper {
+      padding-bottom: 70px;
+      margin-bottom: -50px;
+      margin-top: -50px;
+      padding-top: 20px;
     }
   }
 }
@@ -424,6 +508,21 @@ footer {
   }
 }
 
+@media (min-width: 320px) and (max-width: 1200px) {
+  .movie-card .watchingData .lowerPart {
+    top: 65%;
+  }
+  .movie-card .watchingData h3 {
+    font-size: 1rem;
+  }
+  .movie-card:hover .watchingData {
+    padding-bottom: 0;
+  }
+  .searchPage .searchBar {
+    font-size: 20px !important;
+  }
+}
+
 // Movies Slide
 .slide-wrapper {
   overflow: hidden;
@@ -520,6 +619,7 @@ $nova-color-skeleton-end: #30313a !default;
 // Brand Page
 .brand-page {
   position: relative;
+  margin-top: 94px;
   .background {
     position: fixed;
     width: 100%;
@@ -550,6 +650,22 @@ $nova-color-skeleton-end: #30313a !default;
       rgba(26, 29, 41, 0.3225665266106442) 0%,
       rgba(26, 29, 41, 1) 100%
     );
+  }
+}
+@media (min-width: 320px) and (max-width: 1200px){
+  .brand-page{
+    .background{
+      height: 100%;
+      img{
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .image{
+      img{
+        max-width: 100%;
+      }
+    }
   }
 }
 
@@ -687,7 +803,7 @@ $nova-color-skeleton-end: #30313a !default;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 24%;
+      width: 425px;
       margin-bottom: 30px;
       button {
         border: 2px solid #fff;
@@ -761,7 +877,9 @@ $nova-color-skeleton-end: #30313a !default;
   .tab__title {
     margin: 0;
   }
-  p{margin: 0;}
+  p {
+    margin: 0;
+  }
 }
 
 // Tab Panel
@@ -817,7 +935,7 @@ $content-selector: "~ .content > section";
   }
 
   ul li label {
-    font-size: 17px;
+    font-size: 0.9vw;
     letter-spacing: 3px;
     color: #717171;
   }
@@ -880,7 +998,7 @@ $content-selector: "~ .content > section";
         iteration-count: 1;
       }
       line-height: 1.4;
-      iframe{
+      iframe {
         height: 170px;
         border-radius: 6px;
       }
@@ -917,19 +1035,18 @@ $content-selector: "~ .content > section";
   }
 
   @media (max-width: map-get($breakpoints, small)) {
+    ul li{
+      width: 33%;
+    }
+    .tabs .content section iframe{width: 100%!important;}
     ul li label {
       padding: 5px;
       border-radius: 5px;
-
       span {
-        display: none;
+        font-size: 14px;
       }
     }
-
-    .slider {
-      display: none;
-    }
-
+    .slider{width: 33%;}
     .content {
       margin-top: 20px;
       section h2 {
@@ -967,7 +1084,7 @@ $content-selector: "~ .content > section";
         font-size: 19px;
         line-height: 30px;
       }
-    }    
+    }
     .tab__container {
       display: flex;
     }
@@ -978,6 +1095,23 @@ $content-selector: "~ .content > section";
       display: flex;
       justify-content: space-around;
       flex: 0.3;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  .moviePage {
+    .info {
+      .buttons {
+        flex-flow: column;
+        width: 100%;
+        .watch,
+        .trailer {
+          width: 100%;
+          margin: 5px 0;
+          justify-content: center;
+        }
+      }
     }
   }
 }
