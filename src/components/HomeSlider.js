@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { slideImages } from "../utils";
 
 export default function HomeSlider() {

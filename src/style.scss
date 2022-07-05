@@ -639,3 +639,345 @@ $nova-color-skeleton-end: #30313a !default;
     margin-top: 235px;
   }
 }
+
+// Movie Page
+.moviePage {
+  background: rgb(36, 38, 56);
+  background: linear-gradient(
+    180deg,
+    rgba(36, 38, 56, 1) 0%,
+    rgba(25, 27, 41, 1) 100%
+  );
+  overflow: hidden;
+  .background {
+    position: relative;
+    img {
+      width: 100%;
+      opacity: 0.5;
+    }
+  }
+  .overlay {
+    background-image: radial-gradient(
+      farthest-side at 73% 21%,
+      transparent,
+      rgb(33 35 51)
+    );
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+  }
+  .info {
+    padding: 12px 20px;
+    color: white;
+    position: relative;
+    .title {
+      color: #f9f9f9;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    .description {
+      max-width: 800px;
+      line-height: 26px;
+      font-size: 15px;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 24%;
+      margin-bottom: 30px;
+      button {
+        border: 2px solid #fff;
+        outline: none;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-right: 4px;
+        }
+      }
+      .watch {
+        color: rgba(0, 0, 0, 0.87);
+        background: #fff;
+        padding: 16px 20px;
+        width: 160px;
+        border-radius: 4px;
+        margin-right: 10px;
+        &:hover {
+          background: #ddd;
+        }
+      }
+      .trailer {
+        color: rgba(255, 255, 255, 0.87);
+        background: #000;
+        padding: 16px 20px;
+        width: 140px;
+        border-radius: 4px;
+        margin-right: 10px;
+        svg {
+          fill: #fff;
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+      }
+      .plus,
+      .users {
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.87);
+        background: #000;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          margin: 0;
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+      }
+    }
+    .movie-info span:not(:last-child)::after {
+      content: "•";
+      margin: 0 8px;
+    }
+  }
+  .tab__subtitle {
+    font-size: 15px;
+    color: rgb(202, 202, 202);
+    font-weight: 100;
+    margin-bottom: 2px;
+  }
+  .tab__title {
+    margin: 0;
+  }
+  p{margin: 0;}
+}
+
+// Tab Panel
+$tab-count: 4;
+$indicator-height: 2px;
+
+/* breakpoints */
+$breakpoints: (
+  medium: #{$tab-count * 250px},
+  small: #{$tab-count * 150px},
+);
+
+/* colors */
+$accent: #fff;
+$accent-inactive: desaturate($accent, 85%);
+$secondary: $accent-inactive;
+
+/* selectors relative to radio inputs */
+$label-selector: "~ ul > li";
+$slider-selector: "~ .slider";
+$content-selector: "~ .content > section";
+
+@mixin tabs(
+  $label-selector: $label-selector,
+  $slider-selector: $slider-selector,
+  $content-selector: $content-selector
+) {
+  @for $i from 1 through $tab-count {
+    &:nth-of-type(#{$i}):checked {
+      #{$label-selector}:nth-child(#{$i}) {
+        @content;
+      }
+
+      #{$slider-selector} {
+        transform: translateX(#{100% * ($i - 1)});
+      }
+
+      #{$content-selector}:nth-child(#{$i}) {
+        display: block;
+      }
+    }
+  }
+}
+
+.tabs {
+  position: relative;
+  padding-bottom: 80px;
+  height: 250px;
+  border-radius: 5px;
+  min-width: #{$tab-count * 60px};
+  input[name="tab-control"] {
+    display: none;
+  }
+
+  ul li label {
+    font-size: 17px;
+    letter-spacing: 3px;
+    color: #717171;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    border-bottom: 2px solid hsla(0, 0%, 97.6%, 0.2);
+    li {
+      box-sizing: border-box;
+      width: 10%;
+      padding: 0 10px;
+      text-align: center;
+      label {
+        transition: all 0.3s ease-in-out;
+        color: #bbb;
+        text-transform: uppercase;
+        padding: 5px auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+        -webkit-touch-callout: none;
+        user-select: none;
+      }
+    }
+  }
+
+  .slider {
+    position: relative;
+    width: 10%;
+    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+    top: -18px;
+    .indicator {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      height: $indicator-height;
+      background: $accent;
+      border-radius: 1px;
+    }
+  }
+
+  .content {
+    margin-top: 30px;
+    section {
+      display: none;
+      animation: {
+        name: content;
+        direction: normal;
+        duration: 0.3s;
+        timing-function: ease-in-out;
+        iteration-count: 1;
+      }
+      line-height: 1.4;
+      iframe{
+        height: 170px;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  input[name="tab-control"] {
+    @include tabs {
+      > label {
+        cursor: default;
+        color: #fff;
+        @media (max-width: map-get($breakpoints, small)) {
+          background: rgba(0, 0, 0, 0.08);
+        }
+      }
+    }
+  }
+
+  @keyframes content {
+    from {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, medium)) {
+    ul li label {
+      white-space: initial;
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, small)) {
+    ul li label {
+      padding: 5px;
+      border-radius: 5px;
+
+      span {
+        display: none;
+      }
+    }
+
+    .slider {
+      display: none;
+    }
+
+    .content {
+      margin-top: 20px;
+      section h2 {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .moviePage {
+    display: flex;
+    background: #1a1d29;
+    .background {
+      position: fixed;
+      width: 100%;
+      z-index: 0;
+    }
+    .overlay {
+      background-image: radial-gradient(
+        farthest-side at 73% 21%,
+        transparent,
+        rgb(26, 29, 41)
+      );
+    }
+    .info {
+      align-self: center;
+      padding: 60vh 0 0 90px;
+      width: 100%;
+      .title {
+        font-size: 55px;
+      }
+      .description {
+        max-width: 800px;
+        font-size: 19px;
+        line-height: 30px;
+      }
+    }    
+    .tab__container {
+      display: flex;
+    }
+    .tab__mainColumn {
+      flex: 0.5;
+    }
+    .tab__itemsColumn {
+      display: flex;
+      justify-content: space-around;
+      flex: 0.3;
+    }
+  }
+}
