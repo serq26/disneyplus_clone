@@ -334,6 +334,12 @@ header {
   }
 }
 
+@media (min-width: 320px) and (max-width: 1200px){
+  .brands-row{
+    padding:0 !important;
+  }
+}
+
 @media (min-width: 992px) {
   .brands-row {
     margin-top: 40px;
@@ -559,6 +565,7 @@ footer {
         font-weight: bold;
       }
     }
+    .swiper-button-next{right: 150px;}
     &:hover .swiper-button-next {
       opacity: 1;
     }
@@ -1105,11 +1112,32 @@ $content-selector: "~ .content > section";
       .buttons {
         flex-flow: column;
         width: 100%;
+        position: relative;
+        padding-bottom: 50px;
         .watch,
         .trailer {
           width: 100%;
           margin: 5px 0;
           justify-content: center;
+        }
+        .plus{
+          position: absolute;
+          bottom: -5px;
+          left:0;
+        }
+        .users{
+          position: absolute;
+          bottom: -5px;
+          left: 50px;
+        }
+      }
+    }
+    #extras{
+      .slide-wrapper{
+        margin: 0;
+        .swiper{
+          padding: 0!important;
+          overflow: hidden!important;
         }
       }
     }

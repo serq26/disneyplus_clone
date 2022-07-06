@@ -36,8 +36,7 @@ export default function Header() {
           </svg>
         )}
       </div>
-
-      <img className="logo" src="/images/logo.svg" alt="Disney Plus" />
+      <Link to="/" style={{display:"block",margin:"0 auto"}}><img className="logo" src="/images/logo.svg" alt="Disney Plus" /></Link>
       <ul className="menu" id="menu">
         <li>
           <Link to="/">

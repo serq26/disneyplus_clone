@@ -28,7 +28,7 @@ export default function Movie() {
       .then((response) => {
         const { data } = response;
         setMovie(data);
-        setVideos(data.videos.results);
+        setVideos(data.videos.results.slice(0,3));
       });
     axios
       .get(
@@ -187,7 +187,7 @@ export default function Movie() {
                 </div>
               </div>
             </section>
-            <section>
+            <section id="extras">
               <div className="movies-row">
                 <div className="slide-wrapper">
                   <Swiper
@@ -195,15 +195,15 @@ export default function Movie() {
                     direction="horizontal"
                     speed={1100}
                     spaceBetween={20}
-                    loop={true}
+                    loop={false}
                     autoplay={false}
                     delay={1000}
                     modules={[Navigation, Autoplay]}
                     navigation={{ clickable: true }}
                     breakpoints={{
                       320: {
-                        centeredSlides: false,
-                        slidesPerView: 1,
+                        centeredSlides: true,
+                        slidesPerView: 4,
                       },
                       1300: {
                         slidesPerView: 5.5,
@@ -216,9 +216,10 @@ export default function Movie() {
                     }}
                   >
                     {videos.length > 0 ? (
-                      videos.slice(0, 8).map((video, index) => (
+                      videos.map((video, index) => (
                         <SwiperSlide key={index}>
                           <iframe
+                            title={index}
                             width="560"
                             height="315"
                             src={`https://www.youtube.com/embed/${video.key}`}
