@@ -506,7 +506,7 @@ footer {
     transition: all 0.25s ease-in-out;
   }
   &:hover .progressBar {
-    bottom: 10px;
+    bottom: 6px;
     margin: 0 15px;
     border-radius: 12px;
     width: calc(100% - 30px);
@@ -516,10 +516,12 @@ footer {
 
 @media (min-width: 320px) and (max-width: 1200px) {
   .movie-card .watchingData .lowerPart {
-    top: 65%;
+    top: 48%;
   }
+  .movie-card .watchingData .timeLeft{font-size: 11px;}
   .movie-card .watchingData h3 {
     font-size: 1rem;
+    top: 8px;
   }
   .movie-card:hover .watchingData {
     padding-bottom: 0;
