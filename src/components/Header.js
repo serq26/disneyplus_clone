@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [mobileMenuShow, setMobileMenuShow] = useState(false);
   return (
-    <header className={window.location.pathname.includes("play") ? "transparentHeader" : window.location.pathname}>
+    <header className={window.location.pathname.includes("play") ? "transparentHeader" : "header"}>
       <div
         className="menu-icon"
         onClick={() => {
