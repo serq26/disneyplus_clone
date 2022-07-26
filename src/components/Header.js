@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [mobileMenuShow, setMobileMenuShow] = useState(false);
   return (
-    <header className={window.location.pathname.includes("play") ? "transparentHeader" : "header"}>
+    <header className={window.location.pathname.indexOf("play") !== -1 ? "transparentHeader" : "header"}>
       <div
         className="menu-icon"
         onClick={() => {
@@ -36,7 +36,7 @@ export default function Header() {
           </svg>
         )}
       </div>
-      <Link to="/" style={{display:"block",margin:"0 auto"}}><img className="logo" src="/images/logo.svg" alt="Disney Plus" /></Link>
+      <Link to="/" style={{display:"block"}}><img className="logo" src="/images/logo.svg" alt="Disney Plus" /></Link>
       <ul className="menu" id="menu">
         <li>
           <Link to="/">
