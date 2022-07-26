@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [mobileMenuShow, setMobileMenuShow] = useState(false);
+  const location = useLocation();
+
   return (
-    <header className={window.location.pathname.indexOf("play") !== -1 ? "transparentHeader" : "header"}>
+    <header className={location.pathname.search("play") === 1 ? "transparentHeader" : "header"}>
       <div
         className="menu-icon"
         onClick={() => {
@@ -36,7 +38,7 @@ export default function Header() {
           </svg>
         )}
       </div>
-      <Link to="/" style={{display:"block"}}><img className="logo" src="/images/logo.svg" alt="Disney Plus" /></Link>
+      <Link to="/" className="logo-link" style={{display:"block"}}><img className="logo" src="/images/logo.svg" alt="Disney Plus" /></Link>
       <ul className="menu" id="menu">
         <li>
           <Link to="/">
